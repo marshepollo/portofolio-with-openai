@@ -1,0 +1,295 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variable Declarations */
+:root {
+    --primary-color: #1e3c72;
+    --secondary-color: #2a5298;
+    --accent-color: #ffdd57;
+    --text-color: #000; /* Warna teks hitam untuk body */
+    --background-color: #f4f4f4;
+    --header-height: 60px;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color); /* Teks hitam untuk body */
+    line-height: 1.6;
+    margin: 0;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header Styles */
+header {
+    background: var(--primary-color);
+    color: #fff; /* Teks putih untuk header */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s;
+}
+
+header .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+header .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff; /* Teks putih untuk header */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff; /* Teks putih untuk header */
+    margin: 5px auto;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: var(--primary-color);
+    display: none;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+}
+
+.mobile-menu.active {
+    display: block;
+    transform: translateY(0);
+}
+
+.mobile-menu nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.mobile-menu nav ul li {
+    margin: 20px 0;
+}
+
+.mobile-menu nav ul li a {
+    color: #fff; /* Teks putih untuk header */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.mobile-menu nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Sticky header */
+header.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+/* About Me Section */
+#about {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .profile-picture {
+    width: 150px; /* Ukuran gambar profil */
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%; /* Membuat gambar bulat */
+    margin-right: 20px; /* Jarak antara gambar dan bio */
+  }
+  
+  .profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .bio {
+    max-width: 400px; /* Lebar maksimum untuk teks bio */
+  }
+  
+  @media (max-width: 768px) {
+    .about-content {
+      flex-direction: column; /* Tata letak kolom di layar kecil */
+      align-items: center;
+    }
+  
+    .profile-picture {
+      margin-bottom: 20px; /* Jarak bawah gambar pada layar kecil */
+    }
+  }
+  
+/* Main Sections */
+#hero {
+    background: url('https://img.freepik.com/premium-photo/colorful-dynamic-swirl-abstract-background-pattern-design-suitable-background-wallpaper_605423-2573.jpg?w=826') no-repeat center center/cover;
+    color: var(--text-color);
+    text-align: center;
+    padding: 100px 20px;
+}
+
+#hero h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+#about, #projects, #contact {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-item {
+    background: var(--background-color);
+    padding: 20px;
+    border: 1px solid #ddd;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.project-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.project-item h3 {
+    margin: 10px 0;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+}
+
+/* Contact Form */
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: #fff; /* Warna teks putih untuk tombol */
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: #fff; /* Warna teks putih untuk footer */
+    text-align: center;
+    padding: 10px 20px;
+}
